@@ -12,6 +12,7 @@ Because the internal pull-up is roughly 35kΩ, here is what you can expect when 
 | Resistor Value | maxWakes | Resulting Reset Delay |
 | --- | --- | ---|
 | 0  (Wire link)   |    2   |                 16 Seconds   (Great for testing!)|
+| 100Ω |            1,350 |                   ~3 hours|
 | 150Ω |            7,686 |                   ~17 hours|
 | 330Ω |          14,337 |                  ~32 hours|
 | 470Ω |          18,623 |                  ~41.5 hours|
