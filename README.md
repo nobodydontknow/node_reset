@@ -1,7 +1,7 @@
 # node_reset
 ## Sends a periodic reset, based on attiny13a
 
-Sends a reset every 15 days. Value can be changed via constant at beginning of code.
+Sends a reset every 15 days. MAx number of days can be changed via constant at beginning of code.
 
 Connect MCU + to battery +, MCU - to battery -
 
@@ -9,13 +9,17 @@ IF a BMS is used, connect after the BMS
 
 Connect target MCU reset pin to node_reset MCU physical pin 3 (PB4)
 
-## Serial debug output
+Be sure to burn fuses to set clock to 9.6 MHz, otherwise serial output will not work and timing delays will be too long
 
-Serial output is available on pin 5 at 2400bps via software bit-bang serial routines
+## Debug output
+
+By default, serial output is available on pin 5 at 2400bps via software bit-bang serial routines
 
 Open or resistor status, ADC and maxwakes output at startup
 
 Message output at reset
+
+If DEBUG=1 is specified, serial output is disabled and maxWakes value will be displayed via flash sequence on the reset pin. Connect an LED across reset and ground to view the sequence, and also reset events.
 
 ## Setting reset delay via resistor
 
