@@ -15,7 +15,7 @@ Be sure to burn fuses to set clock to 9.6 MHz, otherwise serial output will not 
 
 By default, serial output is available on pin 5 at 2400bps via software bit-bang serial routines
 
-Serial output displays open or resistor status, ADC and maxwakes output at startup, and a reset message when maxWakes is reached and a reset is triggered.
+Serial output displays open or resistor present status, ADC and maxWakes output at startup, and a reset message when maxWakes is reached and a reset is triggered.
 
 If DEBUG=1 is specified, serial output is disabled and maxWakes value will be displayed via flash sequence on the reset pin. Connect an LED across reset and ground to view the sequence, and also reset events.
 
