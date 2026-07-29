@@ -1,20 +1,35 @@
 # node_reset
 ## Sends a periodic reset, based on attiny13a
 
-To achieve this without adding bulk or extra components to your project, you can take advantage of a clever hardware trick: using the ATtiny13A's internal pull-up resistor to create an on-chip voltage divider. By enabling the internal pull-up on an analog input pin, the ATtiny13A provides its own internal reference resistor (roughly $35\text{k}\Omega$). You only need to attach your timing resistor between Physical Pin 2 (PB3) and GND.
+Sends a reset every 15 days. Value can be changed via constant at beginning of code.
 
-## Common Resistors
-Any resistor you place in between will form a voltage divider to shorten the delay from the max of 168 hours
+Connect MCU + to battery +, MCU - to battery -
+
+IF a BMS is used, connect after the BMS
+
+Connect target MCU reset pin to node_reset MCU physical pin 3 (PB4)
+
+## Serial debug output
+
+Serial output is available on pin 5 at 2400bps via software bit-bang serial routines
+
+Open or resistor status, ADC and maxwakes output at startup
+
+Message output at reset
+
+## Setting reset delay via resistor
+
+If physical pin 2 is shorted to ground, reset time will be ~24 seconds, used for testing.
+
+If physical pin 2 is open, reset time will be maximum of 15 days.
+
+Any resistor you place in between pin 2 and ground will form a voltage divider to shorten the delay from the max of 15 days
 
 ### Reference Guide for Common Resistors
-Because the internal pull-up is roughly 35kΩ, here is what you can expect when using everyday resistor sizes:
+Approximate delay baed on resistor size:
 
 | Resistor Value | maxWakes | Resulting Reset Delay |
 | --- | --- | ---|
-| 0  (Wire link)   |    2   |                 16 Seconds   (Great for testing!)|
-| 100Ω |            1,350 |                   ~3 hours|
-| 150Ω |            7,686 |                   ~17 hours|
-| 330Ω |          14,337 |                  ~32 hours|
-| 470Ω |          18,623 |                  ~41.5 hours|
-| 1kΩ  |          30,521 |                   ~68 hours|
-| ∞ (Open) | 75,600 |                   168 Hours (code override to 168 hours max)|
+| 0  (Wire link)   |    3   |                 24 Seconds   (Great for testing!)|
+| 330Ω |          3,000 |                  ~6.5 hours|
+| ∞ (Open) | 158,040 |                   168 Hours (code override to 168 hours max)|
