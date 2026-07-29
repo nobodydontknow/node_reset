@@ -34,4 +34,4 @@ Approximate delay baed on resistor size:
 | --- | --- | ---|
 | 0  (Wire link)   |    3   |                 24 Seconds   (Great for testing!)|
 | 330Ω |          3,000 |                  ~6.5 hours|
-| ∞ (Open) | 158,040 |                   168 Hours (code override to 168 hours max)|
+| ∞ (Open) | 158,040 |                   15 days (code override to 15 days max)|
