@@ -3,7 +3,7 @@
 
 Sends a reset every 15 days. MAx number of days can be changed via constant at beginning of code.
 
-Connect MCU + to battery +, MCU - to battery -
+Connect MCU + to battery +, MCU - to battery -. Typically this is done by soldering to the battery pins on the target MCU PCB.
 
 IF a BMS is used, connect after the BMS
 
